@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h> // Libreria per il display LCD
+#include <LiquidCrystal.h> // LCD display library
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 #define alarm 6            // buzzer
@@ -6,7 +6,7 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 #define led 13             // LED
 
 void setup() {
-  // Impostazione delle uscite dei componenti
+  //Setting Component Outputs
   pinMode(alarm, OUTPUT); 
   pinMode(motionSensor, INPUT);
   pinMode(led, OUTPUT);
@@ -24,7 +24,7 @@ void loop() {
   if (digitalRead(motionSensor) == HIGH) {
     digitalWrite(alarm, LOW);
     digitalWrite(led, HIGH);
-    lcd.clear();            // Pulisce lo schermo       
+    lcd.clear();            //Screen cleaning the screen    
     lcd.setCursor(1, 0);               
     lcd.print("Movimento");
     lcd.setCursor(0, 1);
@@ -38,7 +38,7 @@ void loop() {
     digitalWrite(alarm, LOW);
     digitalWrite(led, LOW);
     lcd.setCursor(1, 0);   
-    lcd.print("Nessun");
+    lcd.print("Nessun   ");// added spaces for the correct reading of the message
     lcd.setCursor(0, 1); 
     lcd.print("Rilevamento");
   }
